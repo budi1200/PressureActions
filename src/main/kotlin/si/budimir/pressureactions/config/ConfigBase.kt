@@ -1,4 +1,4 @@
-package org.example.templateplugin.config
+package si.budimir.pressureactions.config
 
 import org.bukkit.plugin.java.JavaPlugin
 import org.spongepowered.configurate.CommentedConfigurationNode

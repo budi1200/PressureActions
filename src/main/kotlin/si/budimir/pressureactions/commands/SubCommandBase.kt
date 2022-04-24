@@ -1,4 +1,4 @@
-package org.example.templateplugin.commands
+package si.budimir.pressureactions.commands
 
 import org.bukkit.command.Command
 import org.bukkit.command.CommandSender

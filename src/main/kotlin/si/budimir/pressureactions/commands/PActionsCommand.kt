@@ -1,16 +1,21 @@
-package org.example.templateplugin.commands
+package si.budimir.pressureactions.commands
 
 import org.bukkit.command.*
-import org.example.templateplugin.TemplatePluginMain
-import org.example.templateplugin.commands.subcommands.ReloadSubCommand
-import org.example.templateplugin.utils.MessageHelper
+import si.budimir.pressureactions.PressureActionsMain
+import si.budimir.pressureactions.commands.subcommands.GiveSubCommand
+import si.budimir.pressureactions.commands.subcommands.InfoSubCommand
+import si.budimir.pressureactions.commands.subcommands.ReloadSubCommand
+import si.budimir.pressureactions.enums.Permission
+import si.budimir.pressureactions.utils.MessageHelper
 
-class SampleCommand(private val plugin: TemplatePluginMain) : CommandExecutor, TabExecutor {
+class PActionsCommand(private val plugin: PressureActionsMain) : CommandExecutor, TabExecutor {
     private val subCommands: MutableMap<String, SubCommandBase> = HashMap()
     private var subCommandsList: List<String> = emptyList()
 
     init {
         subCommands["reload"] = ReloadSubCommand(plugin)
+        subCommands["give"] = GiveSubCommand(plugin)
+        subCommands["info"] = InfoSubCommand(plugin)
 
         subCommandsList = subCommands.keys.toList()
     }
@@ -34,7 +39,17 @@ class SampleCommand(private val plugin: TemplatePluginMain) : CommandExecutor, T
 
             sc.execute(sender, command, label, args)
         } else {
-            // Base command without arguments here
+            if (!sender.hasPermission(Permission.USE.getPerm())) return true
+
+            val helpMessage = arrayListOf<String>()
+
+            helpMessage.add("<gray>-=+=--=+=--=+=--=+=-[<gold>Plate Actions<gray>]-=+=--=+=--=+=--=+=-")
+            helpMessage.add(" • <gold>/pactions give <true:false> <command><gray>- Gives yourself a pressure plate in which you can place down to execute the command. If set to true, the command will be done by console, otherwise it will be done by the player. <red>Use %player% in the command to act as the players name in console commands")
+            helpMessage.add(" • <gold>/pactions info <gray>- While looking at a pressure plate, it will give you infomation about the cast command and when / who set it")
+            helpMessage.add(" • <gold>/pactions <gray>- Shows infomation about the avaliable commands")
+            helpMessage.add("<gray-=+=--=+=--=+=--=+=--=+=--=+=--=+=--=+=--=+=--=+=--=+=-")
+
+            MessageHelper.sendMessage(sender, helpMessage.joinToString("<newline>"))
         }
 
         return true

@@ -1,13 +1,13 @@
-package org.example.templateplugin.commands.subcommands
+package si.budimir.pressureactions.commands.subcommands
 
 import org.bukkit.command.Command
 import org.bukkit.command.CommandSender
-import org.example.templateplugin.TemplatePluginMain
-import org.example.templateplugin.commands.SubCommandBase
-import org.example.templateplugin.enums.Permission
-import org.example.templateplugin.utils.MessageHelper
+import si.budimir.pressureactions.PressureActionsMain
+import si.budimir.pressureactions.commands.SubCommandBase
+import si.budimir.pressureactions.enums.Permission
+import si.budimir.pressureactions.utils.MessageHelper
 
-class ReloadSubCommand(private val plugin: TemplatePluginMain): SubCommandBase {
+class ReloadSubCommand(private val plugin: PressureActionsMain): SubCommandBase {
     override fun execute(sender: CommandSender, command: Command, label: String, args: Array<String>): Boolean {
         val reloadResults = hashMapOf<String, Boolean>()
 

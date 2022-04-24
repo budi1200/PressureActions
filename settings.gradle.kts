@@ -1,3 +1,3 @@
 
-rootProject.name = "templateplugin"
+rootProject.name = "PressureActions"
 

@@ -4,8 +4,8 @@ plugins {
     id("net.minecrell.plugin-yml.bukkit") version "0.5.1"
 }
 
-group = "org.example"
-version = "1.0-SNAPSHOT"
+group = "si.budimir"
+version = "1.0"
 
 repositories {
     mavenCentral()
@@ -40,14 +40,14 @@ task("buildAndPush") {
 
 bukkit {
     name= project.name
-    main = "${project.group}.${project.name}.TemplatePluginMain"
+    main = "${project.group}.${project.name.toLowerCase()}.PressureActionsMain"
     apiVersion = "1.18"
-    authors = listOf()
+    authors = listOf("budi1200")
     depend = listOf()
 
     // Docs: https://github.com/Minecrell/plugin-yml#bukkit=
     commands {
-        register("samplecommand") {}
+        register("pactions") {}
     }
 }
 

@@ -1,4 +1,4 @@
-package org.example.templateplugin.utils
+package si.budimir.pressureactions.utils
 
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.TextDecoration
@@ -7,10 +7,10 @@ import net.kyori.adventure.text.minimessage.tag.resolver.Placeholder
 import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
-import org.example.templateplugin.TemplatePluginMain
+import si.budimir.pressureactions.PressureActionsMain
 
 object MessageHelper {
-    private var plugin = TemplatePluginMain.instance
+    private var plugin = PressureActionsMain.instance
     private var pluginPrefix: Component = parseString(plugin.mainConfig.pluginPrefix)
 
     fun reloadPrefix() {
