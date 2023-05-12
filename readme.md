@@ -14,11 +14,11 @@ PressureActions allows players to execute commands by stepping on pressure plate
 PressureActions requires a PaperMC server version 1.18.2 or higher (not tested).
 
 ### Configuration
-On startup two configuration files are loaded: `config.yml` and `lang.yml`. These files are automatically generated on the first startup and can be found in the plugin's data folder.
+On startup two configuration files are loaded: `config.conf` and `messages.conf`. These files are automatically generated on the first startup and can be found in the plugin's data folder.
 
-- `config.yml` contains settings for the plugin and is used to store the pressure plate data.
+- `config.conf` contains settings for the plugin and is used to store the pressure plate data.
 
-- `lang.yml` contains the messages that the plugin uses. These messages can be customized to fit your language and style.
+- `messages.conf` contains the messages that the plugin uses. These messages can be customized to fit your language and style.
 
 ### Usage
   - `/pactions give <true|false> <command>` - Gives you a pressure plate that executes the provided command. If true is specified, the command will be executed by the console, otherwise it will be executed by the player. To substitute the player's name in the command, use `%player%`.
